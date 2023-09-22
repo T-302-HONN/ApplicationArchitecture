@@ -1,5 +1,5 @@
-from core.dtos.create_merchant_dto import CreateMerchantDto
-from core.entities.merchant import Merchant
+from merchants.create_merchant_dto import CreateMerchantDto
+from merchants.merchant import Merchant
 
 
 class MerchantMapper:

@@ -1,12 +1,11 @@
 from fastapi import APIRouter, Depends
 from dependency_injector.wiring import inject, Provide
 
-from core.mappers.buyer_mapper import BuyerMapper
-from core.services.buyer_servicve import BuyerService
-from core.dtos.create_buyer_dto import CreateBuyerDto
+from buyers.buyer_mapper import BuyerMapper
+from buyers.buyer_servicve import BuyerService
+from buyers.create_buyer_dto import CreateBuyerDto
 
-from infrastructure.container import Container
-from core.entities.buyer import Buyer
+from common.container import Container
 
 router = APIRouter(
     prefix='/buyers',

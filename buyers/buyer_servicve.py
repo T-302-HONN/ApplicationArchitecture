@@ -1,5 +1,5 @@
-from core.interfaces.i_buyer_repository import IBuyerRepository
-from core.entities.buyer import Buyer
+from buyers.i_buyer_repository import IBuyerRepository
+from buyers.buyer import Buyer
 
 
 class BuyerService:

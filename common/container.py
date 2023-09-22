@@ -1,20 +1,18 @@
 from dependency_injector import containers, providers
 
-from core.mappers.buyer_mapper import BuyerMapper
-from core.mappers.merchant_mapper import MerchantMapper
-from core.mappers.order_mapper import OrderMapper
-from core.services.buyer_servicve import BuyerService
+from buyers.buyer_mapper import BuyerMapper
+from merchants.merchant_mapper import MerchantMapper
+from orders.order_mapper import OrderMapper
+from buyers.buyer_servicve import BuyerService
 
-from core.services.order_service import OrderService
-from infrastructure.settings import Settings
-from database.database import Database
-from database.mappers.buyer_mapping import BuyerMapping
-from database.mappers.order_mapping import OrderMapping
-from database.mappers.merchant_mapping import MerchantMapping
-from database.repositories.buyer_repository import BuyerRepository
-from database.repositories.order_repository import OrderRepository
-from database.repositories.merchant_repository import MerchantRepository
-from core.services.merchant_service import MerchantService
+from orders.order_service import OrderService
+from common.settings import Settings
+from common.database import Database
+from buyers.buyer_mapping import BuyerMapping
+from orders.order_mapping import OrderMapping
+from merchants.merchant_mapping import MerchantMapping
+from buyers.buyer_repository import BuyerRepository
+from orders.order_repository import OrderRepository
 
 
 class Container(containers.DeclarativeContainer):
@@ -30,11 +28,6 @@ class Container(containers.DeclarativeContainer):
         ),
     )
 
-    merchant_repository = providers.Factory(
-        MerchantRepository,
-        session_factory=database.provided.session,
-    )
-
     order_repository = providers.Factory(
         OrderRepository,
         session_factory=database.provided.session,
@@ -48,11 +41,6 @@ class Container(containers.DeclarativeContainer):
     order_service = providers.Factory(
         OrderService,
         order_repository=order_repository,
-    )
-
-    merchant_service = providers.Factory(
-        MerchantService,
-        merchant_repository=merchant_repository,
     )
 
     buyer_service = providers.Factory(

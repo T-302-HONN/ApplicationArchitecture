@@ -1,10 +1,10 @@
-from infrastructure.settings import Settings
-import endpoints.buyer_endpoints as buyer_endpoints
-import endpoints.merchant_endpoints as merchant_endpoints
-import endpoints.order_endpoints as order_endpoints
+from common.settings import Settings
+import buyers.buyer_endpoints as buyer_endpoints
+import merchants.merchant_endpoints as merchant_endpoints
+import orders.order_endpoints as order_endpoints
 from fastapi import FastAPI
 
-from infrastructure.container import Container
+from common.container import Container
 
 
 def __get_endpoint_modules():
@@ -12,7 +12,7 @@ def __get_endpoint_modules():
 
 
 def create_app() -> FastAPI:
-    settings = Settings("./infrastructure/.env")
+    settings = Settings("./.env")
     container = Container()
     container.config.from_pydantic(settings)
     endpoint_modules = __get_endpoint_modules()

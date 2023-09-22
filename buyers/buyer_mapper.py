@@ -1,5 +1,5 @@
-from core.dtos.create_buyer_dto import CreateBuyerDto
-from core.entities.buyer import Buyer
+from buyers.create_buyer_dto import CreateBuyerDto
+from buyers.buyer import Buyer
 
 
 class BuyerMapper:

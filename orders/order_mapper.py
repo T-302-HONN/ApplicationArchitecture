@@ -1,6 +1,6 @@
-from core.dtos.create_order_dto import CreateOrderDto
-from core.dtos.order_dto import OrderDto
-from core.entities.order import Order
+from orders.create_order_dto import CreateOrderDto
+from orders.order_dto import OrderDto
+from orders.order import Order
 
 
 class OrderMapper:

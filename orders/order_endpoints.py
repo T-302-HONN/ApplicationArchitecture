@@ -1,12 +1,10 @@
-from core.dtos.create_order_dto import CreateOrderDto
+from orders.create_order_dto import CreateOrderDto
 from dependency_injector.wiring import inject, Provide
 from fastapi import APIRouter, Depends, status
 
-from core.mappers.order_mapper import OrderMapper
-from core.services.order_service import OrderService
-from core.dtos.order_dto import OrderDto
-from infrastructure.container import Container
-from core.entities.order import Order
+from orders.order_mapper import OrderMapper
+from orders.order_service import OrderService
+from common.container import Container
 
 router = APIRouter(
     prefix='/orders',

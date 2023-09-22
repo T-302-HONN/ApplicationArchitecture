@@ -2,11 +2,11 @@ from contextlib import AbstractContextManager
 from typing import Callable
 from sqlalchemy.orm import Session, joinedload
 
-from core.interfaces.i_order_repository import IOrderRepository
-from core.entities.buyer import Buyer
-from core.entities.merchant import Merchant
+from orders.i_order_repository import IOrderRepository
+from buyers.buyer import Buyer
+from merchants.merchant import Merchant
 
-from core.entities.order import Order
+from orders.order import Order
 
 
 class OrderRepository(IOrderRepository):

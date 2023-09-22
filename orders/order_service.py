@@ -1,6 +1,5 @@
-from core.interfaces.i_order_repository import IOrderRepository
-from core.entities.order import Order
-from database.repositories.order_repository import OrderRepository
+from orders.i_order_repository import IOrderRepository
+from orders.order import Order
 
 
 class OrderService:

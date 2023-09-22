@@ -1,13 +1,13 @@
 from abc import ABC, abstractmethod
 
-from core.entities.buyer import Buyer
+from orders.order import Order
 
 
-class IBuyerRepository(ABC):
+class IOrderRepository(ABC):
     @abstractmethod
     def get_all(self):
         pass
 
     @abstractmethod
-    def create_buyer(self, buyer: Buyer):
+    def create_order(self, order: Order):
         pass

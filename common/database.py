@@ -2,7 +2,7 @@ from typing import Callable, List
 from sqlalchemy import create_engine, orm
 from contextlib import contextmanager, AbstractContextManager
 from sqlalchemy.orm import Session, registry
-from database.mappers.mapping import Mapping
+from common.mapping import Mapping
 
 
 class Database:
