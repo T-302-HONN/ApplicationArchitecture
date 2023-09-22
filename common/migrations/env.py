@@ -12,7 +12,7 @@ from common.settings import Settings
 # access to the values within the .ini file in use.
 config = context.config
 
-settings = Settings("./infrastructure/.env")
+settings = Settings("./.env")
 container = Container()
 container.config.from_pydantic(settings)
 database = container.database()
