@@ -1,6 +1,6 @@
-from models.buyer import Buyer
-from models.merchant import Merchant
-from models.order import Order
+from core.entities.buyer import Buyer
+from core.entities.merchant import Merchant
+from core.entities.order import Order
 from database.mappers.mapping import Mapping
 from sqlalchemy import MetaData, Table, Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship

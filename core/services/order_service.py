@@ -1,9 +1,10 @@
-from models.order import Order
+from core.interfaces.i_order_repository import IOrderRepository
+from core.entities.order import Order
 from database.repositories.order_repository import OrderRepository
 
 
 class OrderService:
-    def __init__(self, order_repository: OrderRepository):
+    def __init__(self, order_repository: IOrderRepository):
         self.order_repository = order_repository
 
     def get_all(self):

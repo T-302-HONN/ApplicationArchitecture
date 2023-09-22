@@ -1,10 +1,12 @@
 from contextlib import AbstractContextManager
 from typing import Callable
 from sqlalchemy.orm import Session
-from models.merchant import Merchant
+
+from core.interfaces.i_merchant_repository import IMerchantRepository
+from core.entities.merchant import Merchant
 
 
-class MerchantRepository:
+class MerchantRepository(IMerchantRepository):
     def __init__(self, session_factory: Callable[..., AbstractContextManager[Session]]):
         self.__session_factory = session_factory
 

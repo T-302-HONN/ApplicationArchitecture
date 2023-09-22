@@ -1,6 +1,6 @@
 from database.mappers.mapping import Mapping
-from sqlalchemy import MetaData, Table, Column, Integer, String, Float
-from models.merchant import Merchant
+from sqlalchemy import MetaData, Table, Column, Integer, String
+from core.entities.merchant import Merchant
 
 
 class MerchantMapping(Mapping):

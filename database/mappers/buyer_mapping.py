@@ -1,6 +1,6 @@
 from sqlalchemy import MetaData, Table, Column, Integer, String
 
-from models.buyer import Buyer
+from core.entities.buyer import Buyer
 from database.mappers.mapping import Mapping
 
 

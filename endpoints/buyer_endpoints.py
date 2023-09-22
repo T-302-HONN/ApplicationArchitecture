@@ -1,11 +1,12 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends
 from dependency_injector.wiring import inject, Provide
-from services.buyer_servicve import BuyerService
-from dtos.create_buyer_dto import CreateBuyerDto
+
+from core.mappers.buyer_mapper import BuyerMapper
+from core.services.buyer_servicve import BuyerService
+from core.dtos.create_buyer_dto import CreateBuyerDto
 
 from infrastructure.container import Container
-from models.buyer import Buyer
-
+from core.entities.buyer import Buyer
 
 router = APIRouter(
     prefix='/buyers',
@@ -20,12 +21,8 @@ def get_buyers(merchant_service: BuyerService = Depends(Provide[Container.buyer_
 
 @router.post('/')
 @inject
-def create_buyer(request: CreateBuyerDto, buyer_service: BuyerService = Depends(Provide[Container.buyer_service])):
-    buyer = Buyer(
-        name=request.name,
-        email=request.email,
-        phone=request.phone
-    )
-
+def create_buyer(request: CreateBuyerDto, buyer_service: BuyerService = Depends(Provide[Container.buyer_service]),
+                 buyer_mapper: BuyerMapper = Depends(Provide[Container.buyer_mapper])):
+    buyer = buyer_mapper.map(request)
     buyer_service.create_buyer(buyer)
     return buyer

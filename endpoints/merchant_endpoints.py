@@ -1,10 +1,12 @@
 from fastapi import APIRouter, Depends, status
 from dependency_injector.wiring import inject, Provide
-from services.merchant_service import MerchantService
-from dtos.create_merchant_dto import CreateMerchantDto
+
+from core.mappers.merchant_mapper import MerchantMapper
+from core.services.merchant_service import MerchantService
+from core.dtos.create_merchant_dto import CreateMerchantDto
 
 from infrastructure.container import Container
-from models.merchant import Merchant
+from core.entities.merchant import Merchant
 
 router = APIRouter(
     prefix='/merchants',
@@ -19,11 +21,9 @@ def get_merchants(merchant_service: MerchantService = Depends(Provide[Container.
 
 @router.post('/', status_code=status.HTTP_201_CREATED)
 @inject
-def create_merchant(request: CreateMerchantDto, merchant_service: MerchantService = Depends(Provide[Container.merchant_service])):
-    merchant = Merchant(
-        name=request.name,
-        email=request.email,
-        phone=request.phone
-    )
+def create_merchant(request: CreateMerchantDto,
+                    merchant_service: MerchantService = Depends(Provide[Container.merchant_service]),
+                    merchant_mapper: MerchantMapper = Depends(Provide[Container.merchant_mapper])):
+    merchant = merchant_mapper.map(request)
     merchant_service.create_merchant(merchant)
     return merchant
