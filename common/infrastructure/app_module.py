@@ -22,11 +22,6 @@ class AppModule(Module):
 
     @provider
     @singleton
-    def provide_test_string(self) -> str:
-        return "test"
-
-    @provider
-    @singleton
     def provide_settings(self) -> Settings:
         return self.__settings
 
