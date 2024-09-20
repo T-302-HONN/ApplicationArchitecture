@@ -1,8 +1,8 @@
 
 from dataclasses import dataclass
-from core.entities.buyer import Buyer
+from buyers.buyer import Buyer
 
-from core.entities.merchant import Merchant
+from merchants.merchant import Merchant
 
 
 @dataclass

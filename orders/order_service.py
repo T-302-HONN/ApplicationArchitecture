@@ -1,7 +1,7 @@
 from injector import inject
 
-from core.interfaces.i_order_repository import IOrderRepository
-from core.entities.order import Order
+from orders.i_order_repository import IOrderRepository
+from orders.order import Order
 
 
 class OrderService:

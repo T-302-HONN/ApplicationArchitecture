@@ -1,7 +1,7 @@
-from core.entities.buyer import Buyer
-from core.entities.merchant import Merchant
-from core.entities.order import Order
-from database.mappers.mapping import Mapping
+from buyers.buyer import Buyer
+from merchants.merchant import Merchant
+from orders.order import Order
+from common.database.mappers.mapping import Mapping
 from sqlalchemy import MetaData, Table, Column, Integer, String, Float, ForeignKey
 from sqlalchemy.orm import relationship
 

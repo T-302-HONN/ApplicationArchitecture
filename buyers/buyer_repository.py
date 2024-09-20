@@ -4,21 +4,21 @@ from typing import Callable
 from injector import inject
 from sqlalchemy.orm import Session
 
-from core.interfaces.i_merchant_repository import IMerchantRepository
-from core.entities.merchant import Merchant
+from buyers.i_buyer_repository import IBuyerRepository
+from buyers.buyer import Buyer
 
 
-class MerchantRepository(IMerchantRepository):
+class BuyerRepository(IBuyerRepository):
     @inject
     def __init__(self, session_factory: Callable[..., AbstractContextManager[Session]]):
         self.__session_factory = session_factory
 
     def get_all(self):
         with self.__session_factory() as session:
-            return session.query(Merchant).all()
+            return session.query(Buyer).all()
 
-    def create_merchant(self, merchant: Merchant):
+    def create_buyer(self, buyer: Buyer):
         with self.__session_factory() as session:
-            session.add(merchant)
+            session.add(buyer)
             session.commit()
-            session.refresh(merchant)
+            session.refresh(buyer)

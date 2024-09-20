@@ -4,8 +4,9 @@ from injector import inject
 from sqlalchemy import create_engine, orm
 from contextlib import contextmanager, AbstractContextManager
 from sqlalchemy.orm import Session, registry
-from database.mappers.mapping import Mapping
-from infrastructure.settings import Settings
+
+from common.database.mappers.mapping import Mapping
+from common.infrastructure.settings import Settings
 
 
 class Database:

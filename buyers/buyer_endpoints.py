@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends
 from injector import inject
 
-from infrastructure.get_service import get_service
-from core.services.buyer_servicve import BuyerService
-from core.dtos.create_buyer_dto import CreateBuyerDto
+from common.infrastructure.get_service import get_service
+from buyers.buyer_servicve import BuyerService
+from buyers.create_buyer_dto import CreateBuyerDto
 
-from core.entities.buyer import Buyer
+from buyers.buyer import Buyer
 
 
 router = APIRouter(

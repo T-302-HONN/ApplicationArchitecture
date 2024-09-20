@@ -1,7 +1,7 @@
 from sqlalchemy import MetaData, Table, Column, Integer, String
 
-from core.entities.buyer import Buyer
-from database.mappers.mapping import Mapping
+from buyers.buyer import Buyer
+from common.database.mappers.mapping import Mapping
 
 
 class BuyerMapping(Mapping):

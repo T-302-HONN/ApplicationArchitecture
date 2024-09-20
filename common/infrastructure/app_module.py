@@ -4,19 +4,16 @@ from typing import List, Callable
 from injector import Module, provider, singleton, multiprovider, Binder
 from sqlalchemy.orm import Session
 
-from core.entities.merchant import Merchant
-from core.interfaces.i_buyer_repository import IBuyerRepository
-from core.interfaces.i_merchant_repository import IMerchantRepository
-from core.interfaces.i_order_repository import IOrderRepository
-from database.database import Database
-from database.mappers.buyer_mapping import BuyerMapping
-from database.mappers.mapping import Mapping
-from database.mappers.merchant_mapping import MerchantMapping
-from database.mappers.order_mapping import OrderMapping
-from database.repositories.buyer_repository import BuyerRepository
-from database.repositories.merchant_repository import MerchantRepository
-from database.repositories.order_repository import OrderRepository
-from infrastructure.settings import Settings
+from buyers.i_buyer_repository import IBuyerRepository
+from orders.i_order_repository import IOrderRepository
+from common.database.database import Database
+from buyers.buyer_mapping import BuyerMapping
+from common.database.mappers.mapping import Mapping
+from merchants.merchant_mapping import MerchantMapping
+from orders.order_mapping import OrderMapping
+from buyers.buyer_repository import BuyerRepository
+from orders.order_repository import OrderRepository
+from common.infrastructure.settings import Settings
 
 
 class AppModule(Module):
@@ -50,5 +47,4 @@ class AppModule(Module):
 
     def configure(self, binder: Binder) -> None:
         binder.bind(IOrderRepository, to=OrderRepository)
-        binder.bind(IMerchantRepository, to=MerchantRepository)
         binder.bind(IBuyerRepository, to=BuyerRepository)
