@@ -3,10 +3,12 @@ from typing import Callable
 
 from injector import inject
 from sqlalchemy.orm import Session
-from models.merchant import Merchant
+
+from core.interfaces.i_merchant_repository import IMerchantRepository
+from core.entities.merchant import Merchant
 
 
-class MerchantRepository:
+class MerchantRepository(IMerchantRepository):
     @inject
     def __init__(self, session_factory: Callable[..., AbstractContextManager[Session]]):
         self.__session_factory = session_factory

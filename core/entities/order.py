@@ -1,8 +1,8 @@
 
 from dataclasses import dataclass
-from models.buyer import Buyer
+from core.entities.buyer import Buyer
 
-from models.merchant import Merchant
+from core.entities.merchant import Merchant
 
 
 @dataclass

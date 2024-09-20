@@ -1,12 +1,12 @@
 from injector import inject
 
-from models.merchant import Merchant
-from database.repositories.merchant_repository import MerchantRepository
+from core.interfaces.i_merchant_repository import IMerchantRepository
+from core.entities.merchant import Merchant
 
 
 class MerchantService:
     @inject
-    def __init__(self, merchant_repository: MerchantRepository) -> None:
+    def __init__(self, merchant_repository: IMerchantRepository) -> None:
         self.__merchant_repository = merchant_repository
 
     def get_all(self):

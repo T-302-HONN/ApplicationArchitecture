@@ -1,12 +1,12 @@
 from injector import inject
 
-from models.buyer import Buyer
-from database.repositories.buyer_repository import BuyerRepository
+from core.interfaces.i_buyer_repository import IBuyerRepository
+from core.entities.buyer import Buyer
 
 
 class BuyerService:
     @inject
-    def __init__(self, buyer_repository: BuyerRepository):
+    def __init__(self, buyer_repository: IBuyerRepository):
         self.__buyer_repository = buyer_repository
 
     def get_all(self):

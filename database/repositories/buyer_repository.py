@@ -3,10 +3,12 @@ from typing import Callable
 
 from injector import inject
 from sqlalchemy.orm import Session
-from models.buyer import Buyer
+
+from core.interfaces.i_buyer_repository import IBuyerRepository
+from core.entities.buyer import Buyer
 
 
-class BuyerRepository:
+class BuyerRepository(IBuyerRepository):
     @inject
     def __init__(self, session_factory: Callable[..., AbstractContextManager[Session]]):
         self.__session_factory = session_factory

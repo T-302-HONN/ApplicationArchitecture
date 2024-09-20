@@ -1,10 +1,10 @@
-from dtos.create_order_dto import CreateOrderDto
+from core.dtos.create_order_dto import CreateOrderDto
 from fastapi import APIRouter, Depends, status
 
 from infrastructure.get_service import get_service
-from services.order_service import OrderService
-from dtos.order_dto import OrderDto
-from models.order import Order
+from core.services.order_service import OrderService
+from core.dtos.order_dto import OrderDto
+from core.entities.order import Order
 
 router = APIRouter(
     prefix='/orders',

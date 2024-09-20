@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends, status
 
 from infrastructure.get_service import get_service
-from services.merchant_service import MerchantService
-from dtos.create_merchant_dto import CreateMerchantDto
+from core.services.merchant_service import MerchantService
+from core.dtos.create_merchant_dto import CreateMerchantDto
 
-from models.merchant import Merchant
+from core.entities.merchant import Merchant
 
 router = APIRouter(
     prefix='/merchants',

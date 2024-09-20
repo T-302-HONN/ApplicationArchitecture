@@ -3,13 +3,15 @@ from typing import Callable
 
 from injector import inject
 from sqlalchemy.orm import Session, joinedload
-from models.buyer import Buyer
-from models.merchant import Merchant
 
-from models.order import Order
+from core.interfaces.i_order_repository import IOrderRepository
+from core.entities.buyer import Buyer
+from core.entities.merchant import Merchant
+
+from core.entities.order import Order
 
 
-class OrderRepository:
+class OrderRepository(IOrderRepository):
     @inject
     def __init__(self, session_factory: Callable[..., AbstractContextManager[Session]]):
         self.__session_factory = session_factory
